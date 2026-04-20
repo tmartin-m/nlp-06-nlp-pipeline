@@ -324,3 +324,170 @@
 2026-04-15 21:39:14 | INFO | CI | ========================
 2026-04-15 21:39:14 | INFO | CI | Pipeline executed successfully!
 2026-04-15 21:39:14 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | === RUN START ===
+2026-04-19 19:18:12 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-19 19:18:12 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-19 19:18:12 | INFO | CI | python=3.14.3
+2026-04-19 19:18:12 | INFO | CI | os=Windows 11
+2026-04-19 19:18:12 | INFO | CI | shell=powershell
+2026-04-19 19:18:12 | INFO | CI | cwd=.
+2026-04-19 19:18:12 | INFO | CI | github_actions=False
+2026-04-19 19:18:12 | INFO | CI | START PIPELINE
+2026-04-19 19:18:12 | INFO | CI | ROOT_PATH = .
+2026-04-19 19:18:12 | INFO | CI | DATA_PATH = data
+2026-04-19 19:18:12 | INFO | CI | RAW_PATH = data\raw
+2026-04-19 19:18:12 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2604.15108
+2026-04-19 19:18:12 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2604.15108
+2026-04-19 19:18:12 | INFO | CI | SINK PATH = data\raw\tmartin_raw.html
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-19 19:18:12 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-19 19:18:12 | INFO | CI | Top-level elements: ['html']
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: Title found: True
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: Authors found: True
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-19 19:18:12 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-19 19:18:12 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | Extracting metadata from HTML
+2026-04-19 19:18:12 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-19 19:18:12 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-19 19:18:12 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | Inspect: does the raw data look right?
+2026-04-19 19:18:12 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-19 19:18:12 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Extracted title: Data Engineering Patterns for Cross-System Reconciliation in Regulated Enterprises: Architecture, Anomaly Detection, and Governance
+2026-04-19 19:18:12 | INFO | CI | Extracted authors: Zhijun Qiu
+2026-04-19 19:18:12 | INFO | CI | Extracted abstract: Regulated enterprises in the United States--banks, telecommunications providers, large technology co...
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Extracted subjects: Computer Science > Databases
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Extracted submission date: [Submitted on 16 Apr 2026]
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-19 19:18:12 | INFO | CI | ------------------------
+2026-04-19 19:18:12 | INFO | CI | Extracted arxiv_id: 2604.15108
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-19 19:18:12 | INFO | CI | Did we remove anything we should have kept?
+2026-04-19 19:18:12 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI |   abstract (raw):   Regulated enterprises in the United States--banks, telecommunications providers, large technology companies--operate acr...
+2026-04-19 19:18:12 | INFO | CI |   abstract (clean): regulated enterprises united statesbanks telecommunications providers large technology companiesoperate heterogeneous sy...
+2026-04-19 19:18:12 | INFO | CI |   characters removed: 375 (20.2%)
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-19 19:18:12 | INFO | CI | Would any additional features help the analysis?
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI |   abstract_sentence_count: 9
+2026-04-19 19:18:12 | INFO | CI |   abstract_word_count: 229
+2026-04-19 19:18:12 | INFO | CI |   author_count:        1
+2026-04-19 19:18:12 | INFO | CI |   token_count:         155
+2026-04-19 19:18:12 | INFO | CI |   unique_token_count:  138
+2026-04-19 19:18:12 | INFO | CI |   type_token_ratio:    0.8903
+2026-04-19 19:18:12 | INFO | CI |   top 10 tokens:       ['regulated', 'enterprises', 'united', 'statesbanks', 'telecommunications', 'providers', 'large', 'technology', 'companiesoperate', 'heterogeneous']
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-19 19:18:12 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_sentence_count', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count']
+2026-04-19 19:18:12 | INFO | CI | DataFrame Details
+2026-04-19 19:18:12 | INFO | CI |   Title: Data Engineering Patterns for Cross-System Reconciliation in Regulated Enterprises: Architecture, Anomaly Detection, and Governance
+2026-04-19 19:18:12 | INFO | CI |   Author count: 1
+2026-04-19 19:18:12 | INFO | CI |   Abstract word count: 229
+2026-04-19 19:18:12 | INFO | CI |   Token count (clean): 155
+2026-04-19 19:18:12 | INFO | CI |   Type-token ratio: 0.8903
+2026-04-19 19:18:12 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2604.15108  Data Engineering Patterns for Cross-System Rec...          155            0.8903             1
+2026-04-19 19:18:12 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-19 19:18:12 | INFO | CI | Transformation complete.
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI |   Paper: Data Engineering Patterns for Cross-System Reconciliation in Regulated Enterprises: Architecture, Anomaly Detection, and Governance
+2026-04-19 19:18:12 | INFO | CI |   Abstract word count (raw):    229
+2026-04-19 19:18:12 | INFO | CI |   Token count (clean):          155
+2026-04-19 19:18:12 | INFO | CI |   Unique token count:           138
+2026-04-19 19:18:12 | INFO | CI |   Type-token ratio:             0.8903
+2026-04-19 19:18:12 | INFO | CI |   Author count:                 1
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:12 | INFO | CI | PHASE 4.2: Top 25 token frequency - bar chart
+2026-04-19 19:18:12 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI |   Top 25 tokens by frequency:
+2026-04-19 19:18:14 | INFO | CI |       1. systems                        3
+2026-04-19 19:18:14 | INFO | CI |       2. reconciliation                 3
+2026-04-19 19:18:14 | INFO | CI |       3. regulated                      2
+2026-04-19 19:18:14 | INFO | CI |       4. technology                     2
+2026-04-19 19:18:14 | INFO | CI |       5. platforms                      2
+2026-04-19 19:18:14 | INFO | CI |       6. billing                        2
+2026-04-19 19:18:14 | INFO | CI |       7. organization                   2
+2026-04-19 19:18:14 | INFO | CI |       8. paper                          2
+2026-04-19 19:18:14 | INFO | CI |       9. framework                      2
+2026-04-19 19:18:14 | INFO | CI |      10. governed                       2
+2026-04-19 19:18:14 | INFO | CI |      11. enterprise                     2
+2026-04-19 19:18:14 | INFO | CI |      12. data                           2
+2026-04-19 19:18:14 | INFO | CI |      13. architecture                   2
+2026-04-19 19:18:14 | INFO | CI |      14. semantic                       2
+2026-04-19 19:18:14 | INFO | CI |      15. broadband                      2
+2026-04-19 19:18:14 | INFO | CI |      16. enterprises                    1
+2026-04-19 19:18:14 | INFO | CI |      17. united                         1
+2026-04-19 19:18:14 | INFO | CI |      18. statesbanks                    1
+2026-04-19 19:18:14 | INFO | CI |      19. telecommunications             1
+2026-04-19 19:18:14 | INFO | CI |      20. providers                      1
+2026-04-19 19:18:14 | INFO | CI |      21. large                          1
+2026-04-19 19:18:14 | INFO | CI |      22. companiesoperate               1
+2026-04-19 19:18:14 | INFO | CI |      23. heterogeneous                  1
+2026-04-19 19:18:14 | INFO | CI |      24. rarely                         1
+2026-04-19 19:18:14 | INFO | CI |      25. designed                       1
+2026-04-19 19:18:14 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-19 19:18:14 | INFO | CI | Analysis complete.
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI | SINK PATH = data\processed\tmartin_processed.csv
+2026-04-19 19:18:14 | INFO | CI | ========================
+2026-04-19 19:18:14 | INFO | CI | Pipeline executed successfully!
+2026-04-19 19:18:14 | INFO | CI | ========================
