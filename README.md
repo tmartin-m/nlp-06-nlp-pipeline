@@ -433,3 +433,21 @@ of the pipeline.
 ![Bar Chart](./docs/images/case_top_tokens.png)
 
 ![Word Cloud](./docs/images/case_wordcloud.png)
+
+## Phase 4: Make a Technical Modification
+
+I elected to updated the target URL to https://arxiv.org/abs/2604.15108, updated the number of top tokens shown in the bar chart from 20 to 25 and added a new derived column to count the number of sentences in the abstract.
+
+I chose to update the target url to validate the pipeline works correctly on any input without requiring an big restructuring, from there I decided to expand the top tokens. Since most words were only used 1 or 2 times it might have been smarter to limit tokens to those only used 2-3 times to not overwhelm the visuals. Finally I added the new derived column for sentence count to offer more potential for expanded analytics and visuals based on the writing style.
+
+The updated target url worked without any issues, updating the tokens could have been more of a hinderance in this specific example. The derived columns can add additional meaning for further insights. For the sentence count it could be used to compare similar length abstracts from different authors to confirm that although the lengths are similar the structures on the abstract can differ greatly.
+
+## Phase 5. Apply the Skills to a New Problem
+
+I elected to update the target url to https://arxiv.org/abs/2604.15233. After updating the config and pipeline files to reflect the updated stage files and updated the names of the outputs I was able to run the pipeline successfully.
+
+The first major difference in outputs in the number of uses of the top 25 tokens. In Phase 4 the top 25 tokesn were mainly used only 1 or 2 times with just 2 tokens appearing 3 times. In this example, the tokens usage varied significantly more  with the top token of data appearing more than 4 times more than any of tokens used in phase 4.
+
+![Phase 4 Bar Chart](data\processed\case_top_tokens.png)
+
+![Phase 5 Bar Chart](data\processed\tmartin_top_tokens.png)
