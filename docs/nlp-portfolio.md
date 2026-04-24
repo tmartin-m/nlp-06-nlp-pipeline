@@ -35,10 +35,6 @@ Word frequency for the top 25 tokens were calculated and prepared in the bar cha
 
 My biggest insights came from the stark differences from the inputs that focused around similar themes but produced widely different top tokens, and signal counts. In hindsight I would reduce the top tokens to 10 for my final abstract in module 6 because the top 9-25 tokens were all used the same number of times, twice. The top token, data, appeared 13 times which is almost double and triple the next most frequent tokens. Data being the top token is unsurprising as it appears 3 times in the title alone. Sentence count was added to help discern the complexity or directness of the author's writing and a ratio or average could be added to help to further draw those conclusions in examples moving forward.
 
-![Phase 4 Bar Chart](data\processed\case_top_tokens.png)
-
-![Phase 5 Bar Chart](data\processed\tmartin_top_tokens.png)
-
 ## 6. Representative Work
 
 - https://github.com/tmartin-m/nlp-02-text-processing
